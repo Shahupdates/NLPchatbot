@@ -1,0 +1,6 @@
+Hi there, how can I help you today?
+What would you like to know?
+I can help you with that.
+Sorry, I didn't understand that.
+Please provide more information.
+Thank you for your inquiry.
