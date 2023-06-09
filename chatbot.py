@@ -21,6 +21,7 @@ class Chatbot:
         self.nlp = spacy.load('en_core_web_sm')
         self.ner_model = spacy.load('en_core_web_sm')
         self.context = []
+        self.api_key = api_key
 
     def load_corpus(self, file_path):
         with open(file_path, 'r') as file:
@@ -74,12 +75,12 @@ class Chatbot:
         return sentiment
 
     def fetch_weather(self, location):
-        # Use an appropriate weather API to fetch the weather data for the specified location
-        response = requests.get('https://api.weather.com/...')
+        endpoint = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={self.api_key}"
+        response = requests.get(endpoint)
         weather_data = response.json()
 
         return weather_data
-
+    
     def handle_weather_intent(self, input_text):
         # Extract location from input_text
         location = self.extract_location(input_text)
